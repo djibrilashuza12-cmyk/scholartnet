@@ -1,0 +1,301 @@
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --brand-500: #3b82f6;
+    --brand-600: #2563eb;
+    --zinc-50: #fafafa;
+    --zinc-100: #f4f4f5;
+    --zinc-200: #e4e4e7;
+    --zinc-400: #a1a1aa;
+    --zinc-500: #71717a;
+    --zinc-600: #52525b;
+    --zinc-700: #3f3f46;
+    --zinc-900: #18181b;
+}
+
+body {
+    background-color: var(--zinc-50);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+    color: var(--zinc-900);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+/* TYPOGRAPHY */
+h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--zinc-900);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.header p {
+    color: var(--zinc-500);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.brand-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--brand-600);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+/* COMPONENTS */
+.saas-card {
+    background: white;
+    border: 1px solid var(--zinc-200);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.025);
+}
+
+.search-box {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--zinc-400);
+    font-size: 1.25rem;
+}
+
+.saas-input {
+    width: 100%;
+    height: 3.5rem;
+    padding: 0 1rem 0 3rem;
+    background: white;
+    border: 1px solid var(--zinc-200);
+    border-radius: 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--zinc-900);
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.saas-input:focus {
+    outline: none;
+    border-color: var(--brand-500);
+    ring: 4px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.saas-btn-brand {
+    height: 3.5rem;
+    padding: 0 1.75rem;
+    background: var(--zinc-900);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.saas-btn-brand:hover {
+    background: #000;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+/* RESULTS UI */
+.resultats-card {
+    background: white;
+    border: 1px solid var(--zinc-200);
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+.eleve-header {
+    background: var(--zinc-900);
+    color: white;
+    padding: 2rem;
+}
+
+.eleve-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: var(--zinc-50);
+    border-bottom: 1px solid var(--zinc-200);
+}
+
+.info-item .label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--zinc-400);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.info-item .value {
+    font-weight: 700;
+    color: var(--zinc-900);
+}
+
+.periode-section {
+    padding: 2rem;
+    border-bottom: 1px solid var(--zinc-100);
+}
+
+.periode-section:last-child { border-bottom: none; }
+
+.periode-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--zinc-900);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.saas-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.saas-table th {
+    text-align: left;
+    padding: 0.75rem 0;
+    color: var(--zinc-400);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--zinc-100);
+}
+
+.saas-table td {
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--zinc-50);
+    font-weight: 500;
+}
+
+.saas-table tr:last-child td { border-bottom: none; }
+
+.text-passed { color: #059669; font-weight: 700; }
+.text-failed { color: #dc2626; font-weight: 700; }
+
+.periode-summary {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--zinc-50);
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-moyenne {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.875rem;
+}
+
+.badge-moyenne.passed { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.badge-moyenne.failed { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+.badge-rang {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--zinc-600);
+}
+
+/* ALERTS & LOADING */
+.error-alert {
+    margin-top: 1.5rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--zinc-400);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.spinner-container i { font-size: 1.5rem; }
+
+.footer {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--zinc-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ANIMATIONS */
+.animate-fade-in { animation: fadeIn 0.4s ease-out; }
+.animate-slide-up { animation: slideUp 0.3s ease-out; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.hidden { display: none !important; }
+
+@media (max-width: 640px) {
+    .search-box { flex-direction: column; }
+    .saas-btn-brand { width: 100%; justify-content: center; }
+    .eleve-info-grid { grid-template-columns: 1fr 1fr; }
+}

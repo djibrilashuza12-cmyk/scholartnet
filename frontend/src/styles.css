@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-zinc-900 bg-zinc-50;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Fix Angular Material if used so it doesn't conflict */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Vercel/Linear style Cards */
+  .saas-card {
+    @apply bg-white border border-zinc-200 rounded-xl shadow-card transition-all duration-200;
+  }
+  
+  /* Form Inputs */
+  .saas-input {
+    @apply w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10 disabled:cursor-not-allowed disabled:opacity-50 transition-all shadow-sm;
+  }
+  
+  .saas-label {
+    @apply block text-sm font-medium text-zinc-700 mb-1.5;
+  }
+
+  /* Buttons */
+  .saas-btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-50 transition-all hover:bg-zinc-800 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-zinc-900/10 disabled:opacity-50 disabled:pointer-events-none shadow-sm;
+  }
+  
+  .saas-btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-900 transition-all hover:bg-zinc-50 hover:text-zinc-900 hover:border-zinc-300 focus:outline-none focus:ring-4 focus:ring-zinc-200/50 disabled:opacity-50 disabled:pointer-events-none shadow-sm;
+  }
+  
+  .saas-btn-brand {
+    @apply inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-brand-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brand-600/20 disabled:opacity-50 disabled:pointer-events-none shadow-sm;
+  }
+
+  .saas-btn-danger {
+    @apply inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-red-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-red-600/20 disabled:opacity-50 disabled:pointer-events-none shadow-sm;
+  }
+
+  /* Tables */
+  .saas-table-container {
+    @apply w-full overflow-hidden border border-zinc-200 rounded-xl bg-white shadow-card;
+  }
+  .saas-table-scroll {
+    @apply w-full overflow-x-auto;
+  }
+  .saas-table {
+    @apply w-full caption-bottom text-sm text-left;
+  }
+  .saas-table th {
+    @apply h-11 px-4 align-middle font-medium text-zinc-500 bg-zinc-50/80 border-b border-zinc-200 text-xs uppercase tracking-wider;
+  }
+  .saas-table td {
+    @apply p-4 align-middle border-b border-zinc-100 text-zinc-700;
+  }
+  .saas-table tr:last-child td {
+    @apply border-0;
+  }
+  .saas-table tr:hover {
+    @apply bg-zinc-50/50 transition-colors;
+  }
+
+  /* Badges */
+  .saas-badge-success {
+    @apply inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700;
+  }
+  .saas-badge-warning {
+    @apply inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700;
+  }
+  .saas-badge-error {
+    @apply inline-flex items-center rounded-full border border-red-200 bg-red-50 px-2 py-0.5 text-xs font-medium text-red-700;
+  }
+  .saas-badge-info {
+    @apply inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700;
+  }
+  .saas-badge-neutral {
+    @apply inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-700;
+  }
+}
+
+/* Custom Scrollbar for a clean look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e4e4e7; /* zinc-200 */
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d8; /* zinc-300 */
+}

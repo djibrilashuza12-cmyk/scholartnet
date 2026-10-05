@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr" class="antialiased">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScolarNet - Résultats Publics</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen selection:bg-brand-500/30 font-sans">
+    <div class="container animate-fade-in">
+        <header class="header">
+            <div class="brand-logo mx-auto mb-6">
+                <i class="ph-fill ph-student"></i>
+            </div>
+            <h1>ScolarNet</h1>
+            <p>Portail de Consultation des Résultats</p>
+        </header>
+
+        <main>
+            <section class="search-section saas-card">
+                <p class="text-sm font-medium text-zinc-500 mb-6 text-center">Saisissez votre matricule officiel pour accéder à votre relevé de notes</p>
+                <div class="search-box">
+                    <div class="input-wrapper">
+                        <i class="ph ph-identification-badge"></i>
+                        <input type="text" id="matriculeInput" placeholder="Ex: 2024-123-ABC" class="saas-input">
+                    </div>
+                    <button id="rechercherBtn" class="saas-btn-brand">
+                        <span>Consulter</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div id="loadingIndicator" class="hidden animate-fade-in py-4">
+                    <div class="spinner-container">
+                        <i class="ph ph-spinner-gap animate-spin"></i>
+                        <span>Recherche des données...</span>
+                    </div>
+                </div>
+                
+                <div id="errorMessage" class="hidden error-alert animate-slide-up">
+                    <i class="ph ph-warning-circle"></i>
+                    <span id="errorText"></span>
+                </div>
+            </section>
+
+            <div id="resultatsContainer" class="hidden space-y-6">
+                <!-- Les résultats seront injectés dynamiquement par script.js -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 ScolarNet • Système de Gestion d'Établissement • Production Ready</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1206 @@
+<!-- ============================================================
+     SCOLARNET - LANDING PAGE
+     Version Production Professionnelle
+     ============================================================ -->
+<div class="landing-container">
+
+  <!-- ============================================ -->
+  <!-- NAVBAR                                       -->
+  <!-- ============================================ -->
+  <nav class="navbar" [class.navbar-fixed]="isNavbarFixed" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <div class="navbar-brand">
+        <a routerLink="/" class="logo-link" aria-label="ScolarNet - Accueil">
+          <app-logo [size]="36" [showText]="true"></app-logo>
+        </a>
+      </div>
+
+      <ul class="navbar-links" role="menubar">
+        <li *ngFor="let link of navLinks" role="none">
+          <a [href]="link.href" (click)="$event.preventDefault(); scrollToSection(link.href)" role="menuitem">
+            {{ link.name }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="navbar-actions">
+        <a href="http://207.180.205.248:8088" target="_blank" rel="noopener" class="btn-resultats">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          Résultats
+        </a>
+        <button class="btn-ghost" (click)="openLoginModal()" type="button">
+          Se connecter
+        </button>
+      </div>
+
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen"
+        aria-label="Menu" type="button">
+        <span class="hamburger" [class.active]="isMobileMenuOpen">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+      <div class="mobile-menu-inner">
+        <ul class="mobile-nav-links">
+          <li *ngFor="let link of navLinks">
+            <a [href]="link.href" (click)="$event.preventDefault(); scrollToSection(link.href)">
+              {{ link.name }}
+            </a>
+          </li>
+          <li class="mobile-actions">
+            <a href="http://207.180.205.248:8088" target="_blank" rel="noopener" class="btn-resultats-full">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+              Consulter les résultats
+            </a>
+            <button class="btn-ghost-full" (click)="openLoginModal(); toggleMobileMenu()" type="button">
+              Se connecter
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO SECTION                                -->
+  <!-- ============================================ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-background" aria-hidden="true">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Solution de gestion scolaire
+          </div>
+
+          <h1 id="hero-title">
+            Pilotez votre établissement scolaire<br>
+            avec <span class="highlight">sérénité</span>
+          </h1>
+
+          <p class="hero-description">
+            ScolarNet centralise la gestion académique, financière et administrative de votre école.
+            Notes, présences, paiements et communication : tout en un seul outil.
+          </p>
+
+          <div class="hero-cta">
+            <button class="btn-primary btn-large" (click)="openLoginModal()" type="button">
+              Accéder à mon espace
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <a href="http://207.180.205.248:8088" target="_blank" rel="noopener" class="btn-secondary btn-large">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+              Consulter les résultats
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-glow" aria-hidden="true"></div>
+            <div class="hero-image-container">
+              <img src="assets/dashboard-mockup.png" alt="Tableau de bord ScolarNet" class="hero-mockup" loading="eager"
+                width="800" height="600">
+            </div>
+            <div class="floating-card card-1" aria-hidden="true">
+              <div class="card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <div>
+                <div class="card-label">Notes saisies</div>
+                <div class="card-value">12 458</div>
+              </div>
+            </div>
+            <div class="floating-card card-2" aria-hidden="true">
+              <div class="card-icon success">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div>
+                <div class="card-label">Paiements</div>
+                <div class="card-value">98%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FEATURES SECTION                            -->
+  <!-- ============================================ -->
+  <section id="features" class="features-section section-animate" data-animation="fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Fonctionnalités</span>
+        <h2>Une solution complète pour <span class="highlight">votre école</span></h2>
+        <p class="section-subtitle">
+          Des modules intégrés pour simplifier chaque aspect de la gestion scolaire
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--primary-50); color: var(--primary-600);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              aria-hidden="true">
+              <path
+                d="M12 6V2M12 22V18M4.93 4.93L8.76 8.76M15.24 15.24L19.07 19.07M2 12H6M18 12H22M4.93 19.07L8.76 15.24M15.24 8.76L19.07 4.93" />
+              <circle cx="12" cy="12" r="4" />
+            </svg>
+          </div>
+          <h3>Gestion Académique</h3>
+          <p>Bulletins automatisés, emplois du temps, suivi des cursus et relevés de notes personnalisés.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--success-50); color: var(--success-600);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              aria-hidden="true">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <h3>Gestion Financière</h3>
+          <p>Suivi des paiements, génération de reçus, relances automatiques et tableaux de bord financiers.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--warning-50); color: var(--warning-600);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              aria-hidden="true">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <h3>Communication</h3>
+          <p>Portails dédiés pour les parents et enseignants, suivi des absences et devoirs en temps réel.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background: var(--neutral-100); color: var(--neutral-700);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01" />
+            </svg>
+          </div>
+          <h3>Sécurité & Multi-tenant</h3>
+          <p>Chaque école dispose de son espace totalement cloisonné et sécurisé. Données chiffrées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- RÉSULTATS SECTION                           -->
+  <!-- ============================================ -->
+  <section id="resultats" class="resultats-section section-animate" data-animation="fadeInUp">
+    <div class="container">
+      <div class="resultats-wrapper">
+        <div class="resultats-content">
+          <span class="section-tag">Consultation publique</span>
+          <h2>Consultez les résultats <span class="highlight">en ligne</span></h2>
+          <p class="resultats-description">
+            Les élèves et leurs parents peuvent consulter les résultats scolaires directement en ligne,
+            à tout moment et en toute sécurité. Il suffit de saisir le matricule de l'élève.
+          </p>
+
+          <ul class="resultats-features">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Accès instantané avec le matricule de l'élève
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Relevé de notes détaillé par période
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Pourcentages et classements affichés
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Accessible sur mobile, tablette et ordinateur
+            </li>
+          </ul>
+
+          <a href="http://207.180.205.248:8088" target="_blank" rel="noopener"
+            class="btn-primary btn-large btn-resultats-cta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            Accéder au portail
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="resultats-preview">
+          <div class="preview-card">
+            <div class="preview-header">
+              <div class="preview-avatar">AK</div>
+              <div>
+                <div class="preview-name">Alain Kasongo</div>
+                <div class="preview-matricule">2024-123-ABC</div>
+              </div>
+            </div>
+            <div class="preview-info">
+              <div class="preview-info-item">
+                <span class="label">Classe</span>
+                <span class="value">3ème Scientifique</span>
+              </div>
+              <div class="preview-info-item">
+                <span class="label">Période</span>
+                <span class="value">1ère Période</span>
+              </div>
+            </div>
+            <div class="preview-notes">
+              <div class="preview-note">
+                <span>Mathématiques</span>
+                <span class="note-passed">85%</span>
+              </div>
+              <div class="preview-note">
+                <span>Physique</span>
+                <span class="note-passed">78%</span>
+              </div>
+              <div class="preview-note">
+                <span>Français</span>
+                <span class="note-passed">72%</span>
+              </div>
+              <div class="preview-note">
+                <span>Anglais</span>
+                <span class="note-failed">48%</span>
+              </div>
+            </div>
+            <div class="preview-summary">
+              <div class="preview-rang">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                  <path d="M4 22h16" />
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                </svg>
+                3ème place
+              </div>
+              <div class="preview-moyenne">70.75%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOR WHOM SECTION                            -->
+  <!-- ============================================ -->
+  <section id="for-whom" class="forwhom-section section-animate" data-animation="fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pour qui ?</span>
+        <h2>Adapté à chaque <span class="highlight">acteur</span> de l'éducation</h2>
+        <p class="section-subtitle">
+          Des interfaces personnalisées pour chaque profil d'utilisateur
+        </p>
+      </div>
+
+      <div class="forwhom-grid">
+        <div class="forwhom-card">
+          <div class="forwhom-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Directeurs & Administrateurs</h3>
+          <p>Vision globale de l'établissement, tableaux de bord stratégiques, pilotage financier et académique.</p>
+        </div>
+
+        <div class="forwhom-card">
+          <div class="forwhom-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              aria-hidden="true">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path d="M12 14l6-3.33V10" />
+              <path d="M12 18l6-3.33V14" />
+              <path d="M6 10.67L12 14v4" />
+            </svg>
+          </div>
+          <h3>Enseignants & Titulaires</h3>
+          <p>Saisie des notes, gestion des présences, communication avec les parents, suivi individuel des élèves.</p>
+        </div>
+
+        <div class="forwhom-card">
+          <div class="forwhom-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          <h3>Parents d'élèves</h3>
+          <p>Suivi des notes, des absences, des paiements. Communication directe avec les enseignants.</p>
+        </div>
+
+        <div class="forwhom-card">
+          <div class="forwhom-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              aria-hidden="true">
+              <path d="M21 10h-2.6A8 8 0 0 0 4 9.2V10H2" />
+              <path d="M2 10a5.5 5.5 0 0 0 1.95 4.7l-.79 2.82a2 2 0 0 0 1.9 2.48H7" />
+              <path d="M21 10a5.5 5.5 0 0 1-1.95 4.7l.79 2.82a2 2 0 0 1-1.9 2.48H17" />
+              <circle cx="7" cy="16" r="1.5" />
+              <circle cx="17" cy="16" r="1.5" />
+            </svg>
+          </div>
+          <h3>Secrétaires & Gestionnaires</h3>
+          <p>Gestion des dossiers élèves, inscriptions, paiements, impressions de documents officiels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SUGGESTIONS SECTION                         -->
+  <!-- ============================================ -->
+  <section id="suggestions" class="suggestions-section section-animate" data-animation="fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Boîte à idées</span>
+        <h2>Vos <span class="highlight">suggestions</span> comptent</h2>
+        <p class="section-subtitle">
+          Aidez-nous à améliorer ScolarNet en partageant vos idées, remarques ou besoins
+        </p>
+      </div>
+
+      <div class="suggestions-wrapper">
+        <div class="suggestions-form-card">
+          <!-- Formulaire -->
+          <form (ngSubmit)="onSubmitSuggestion()" #suggestionForm="ngForm" *ngIf="!suggestionSuccess">
+            <div class="form-group">
+              <label for="suggestion-nom">Nom complet <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <input type="text" id="suggestion-nom" [(ngModel)]="suggestionData.nom" name="nom" required
+                  placeholder="Votre nom complet" autocomplete="name" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="suggestion-email">Email <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input type="email" id="suggestion-email" [(ngModel)]="suggestionData.email" name="email" required
+                  placeholder="votre@email.com" autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="suggestion-sujet">Sujet <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                <input type="text" id="suggestion-sujet" [(ngModel)]="suggestionData.sujet" name="sujet" required
+                  placeholder="Ex : Amélioration du module de notes" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="suggestion-message">Votre message <span class="required">*</span></label>
+              <textarea id="suggestion-message" [(ngModel)]="suggestionData.message" name="message" required rows="5"
+                placeholder="Décrivez votre suggestion, idée ou remarque en détail..."></textarea>
+            </div>
+
+            <div *ngIf="suggestionError" class="error-box" role="alert">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              {{ suggestionError }}
+            </div>
+
+            <button type="submit" class="btn-submit" [disabled]="suggestionSubmitting">
+              <svg *ngIf="!suggestionSubmitting" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <svg *ngIf="suggestionSubmitting" class="spinner-icon" width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
+              {{ suggestionSubmitting ? 'Envoi en cours...' : 'Envoyer ma suggestion' }}
+            </button>
+          </form>
+
+          <!-- Succès -->
+          <div *ngIf="suggestionSuccess" class="success-message" role="status">
+            <div class="success-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3>Merci pour votre suggestion !</h3>
+            <p>Nous avons bien reçu votre message. Notre équipe l'examinera dans les plus brefs délais.</p>
+            <button class="btn-secondary" (click)="resetSuggestionForm()" type="button">
+              Envoyer une autre suggestion
+            </button>
+          </div>
+        </div>
+
+        <div class="suggestions-info">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                aria-hidden="true">
+                <path
+                  d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z" />
+                <path d="M9 21h6" />
+              </svg>
+            </div>
+            <h4>Idées d'amélioration</h4>
+            <p>Proposez de nouvelles fonctionnalités ou des améliorations pour les modules existants.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </div>
+            <h4>Signaler un problème</h4>
+            <p>Rencontrez-vous un bug ou un dysfonctionnement ? Décrivez-le nous en détail.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </div>
+            <h4>Vos retours</h4>
+            <p>Partagez votre expérience d'utilisation et aidez-nous à mieux répondre à vos besoins.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FAQ SECTION                                 -->
+  <!-- ============================================ -->
+  <section id="faq" class="faq-section section-animate" data-animation="fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Foire aux <span class="highlight">questions</span></h2>
+        <p class="section-subtitle">
+          Les réponses aux questions les plus fréquentes sur ScolarNet
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div *ngFor="let faq of faqs; let i = index" class="faq-item" [class.open]="faq.open">
+          <button class="faq-question" (click)="toggleFaq(i)" [attr.aria-expanded]="faq.open" type="button">
+            <span>{{ faq.question }}</span>
+            <svg class="faq-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="faq-answer" [style.maxHeight]="faq.open ? '400px' : '0'">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA FINAL SECTION                           -->
+  <!-- ============================================ -->
+  <section class="cta-final section-animate" data-animation="fadeInUp">
+    <div class="container">
+      <div class="cta-final-content">
+        <div class="cta-final-text">
+          <span class="cta-tag">Prêt à démarrer ?</span>
+          <h2>Transformez la gestion de votre <span class="highlight">école</span> dès aujourd'hui</h2>
+          <p>Accédez à votre espace de gestion ou consultez les résultats scolaires en ligne.</p>
+        </div>
+        <div class="cta-final-actions">
+          <button class="btn-primary btn-large" (click)="openLoginModal()" type="button">
+            Accéder à mon espace
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <a href="http://207.180.205.248:8088" target="_blank" rel="noopener" class="btn-ghost btn-large">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            Consulter les résultats
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER                                      -->
+  <!-- ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a routerLink="/" class="logo-link">
+            <app-logo [size]="32" [showText]="true"></app-logo>
+          </a>
+          <p class="footer-description">
+            La solution de gestion scolaire moderne, sécurisée et collaborative.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Produit</h4>
+          <ul>
+            <li><a href="#features" (click)="$event.preventDefault(); scrollToSection('#features')">Fonctionnalités</a>
+            </li>
+            <li><a href="#resultats" (click)="$event.preventDefault(); scrollToSection('#resultats')">Consultation
+                résultats</a></li>
+            <li><a href="#suggestions"
+                (click)="$event.preventDefault(); scrollToSection('#suggestions')">Suggestions</a></li>
+            <li><a href="#faq" (click)="$event.preventDefault(); scrollToSection('#faq')">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Accès rapide</h4>
+          <ul>
+            <li><a href="http://207.180.205.248:8088" target="_blank" rel="noopener">Consulter les résultats</a></li>
+            <li><a href="#" (click)="$event.preventDefault(); openLoginModal()">Se connecter</a></li>
+            <li><a href="#suggestions" (click)="$event.preventDefault(); scrollToSection('#suggestions')">Boîte à
+                idées</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Légal</h4>
+          <ul>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Confidentialité</a></li>
+            <li><a href="#">CGU</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 ScolarNet. Tous droits réservés.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- MODAL LOGIN + REGISTER                       -->
+  <!-- ============================================ -->
+  <div class="auth-modal-overlay" *ngIf="isLoginModalOpen || isRegisterModalOpen"
+    (click)="isLoginModalOpen ? closeLoginModal() : closeRegisterModal()" role="dialog" aria-modal="true">
+    <div class="auth-modal" (click)="$event.stopPropagation()">
+
+      <button class="auth-modal-close" (click)="isLoginModalOpen ? closeLoginModal() : closeRegisterModal()"
+        aria-label="Fermer" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <div class="auth-tabs">
+        <button class="auth-tab" [class.active]="activeTab === 'login'"
+          (click)="activeTab = 'login'; isLoginModalOpen = true; isRegisterModalOpen = false;" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+          Connexion
+        </button>
+        <button class="auth-tab" [class.active]="activeTab === 'register'"
+          (click)="activeTab = 'register'; isRegisterModalOpen = true; isLoginModalOpen = false;" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34" />
+            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2" />
+          </svg>
+          Inscription
+        </button>
+      </div>
+
+      <!-- LOGIN -->
+      <div *ngIf="activeTab === 'login'" class="auth-content">
+
+        <div *ngIf="loginIsLoading" class="auth-spinner">
+          <div class="spinner"></div>
+          <p>{{ loginLoadingMessage }}</p>
+        </div>
+
+        <div *ngIf="!loginIsLoading && loginStep === 'LOGIN'" class="auth-form">
+          <div class="auth-header">
+            <h2>Bienvenue</h2>
+            <p>Connectez-vous à votre espace ScolarNet</p>
+          </div>
+
+          <form (ngSubmit)="onLogin()">
+            <div class="form-group">
+              <label>Email professionnel</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input type="email" [(ngModel)]="loginCredentials.email" name="login_email" required
+                  placeholder="admin@ecole.cd" autocomplete="email" />
+              </div>
+              <div *ngIf="loginShowErrors && loginErrors['email']" class="error-text">{{ loginErrors['email'] }}</div>
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label>Mot de passe</label>
+                <button type="button" class="forgot-link" (click)="showForgotPasswordModal = true">
+                  Mot de passe oublié ?
+                </button>
+              </div>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0110 0v4" />
+                </svg>
+                <input [type]="loginShowPassword ? 'text' : 'password'" [(ngModel)]="loginCredentials.mot_de_passe"
+                  name="login_password" required placeholder="••••••••" autocomplete="current-password" />
+                <button type="button" class="eye-btn" (click)="toggleLoginPassword()"
+                  aria-label="Afficher le mot de passe">
+                  <svg *ngIf="loginShowPassword" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                  <svg *ngIf="!loginShowPassword" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+              <div *ngIf="loginShowErrors && loginErrors['mot_de_passe']" class="error-text">{{
+                loginErrors['mot_de_passe'] }}</div>
+            </div>
+
+            <div *ngIf="loginError" class="error-box" role="alert">
+              <span>⚠</span> {{ loginError }}
+            </div>
+
+            <button type="submit" class="btn-submit">Se connecter</button>
+          </form>
+        </div>
+
+        <!-- School Selection -->
+        <div *ngIf="!loginIsLoading && loginStep === 'SELECT_SCHOOL'" class="auth-form">
+          <div class="auth-header">
+            <div class="auth-icon-small">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <h3>Sélectionnez votre établissement</h3>
+            <p>Choisissez l'école pour cette session</p>
+          </div>
+
+          <div class="school-list">
+            <div *ngFor="let s of schoolsList" (click)="onSelectSchool(s)" class="school-item">
+              <div class="school-info">
+                <div class="school-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="school-name">{{ s.nom_ecole }}</div>
+                  <div class="school-code">Code : {{ s.code_epst }}</div>
+                </div>
+              </div>
+              <span class="school-role">{{ s.role }}</span>
+              <svg class="school-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+          </div>
+
+          <button class="back-btn" (click)="loginStep = 'LOGIN'" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Retour
+          </button>
+        </div>
+      </div>
+
+      <!-- REGISTER -->
+      <div *ngIf="activeTab === 'register'" class="auth-content register-content">
+
+        <div *ngIf="registerIsLoading" class="auth-spinner">
+          <div class="spinner"></div>
+          <p>{{ registerLoadingMessage }}</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div *ngIf="!registerIsLoading && registerStep === 1" class="auth-form">
+          <div class="auth-header">
+            <h2>Informations de l'école</h2>
+            <p>Identifiez officiellement votre établissement</p>
+          </div>
+
+          <form (ngSubmit)="goToRegisterStep2()">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Code EPST <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <input type="text" [(ngModel)]="registerData.code_epst" name="reg_code_epst" required
+                    placeholder="Ex: EPST-00429" />
+                </div>
+                <div *ngIf="registerShowErrors && registerErrors['code_epst']" class="error-text">{{
+                  registerErrors['code_epst'] }}</div>
+              </div>
+
+              <div class="form-group">
+                <label>Nom de l'école <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                  </svg>
+                  <input type="text" [(ngModel)]="registerData.nom_ecole" name="reg_nom_ecole" required
+                    placeholder="Complexe Scolaire Lumumba" />
+                </div>
+                <div *ngIf="registerShowErrors && registerErrors['nom_ecole']" class="error-text">{{
+                  registerErrors['nom_ecole'] }}</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Adresse</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <input type="text" [(ngModel)]="registerData.adresse" name="reg_adresse"
+                    placeholder="Avenue des écoles, N°15" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>BP</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <input type="text" [(ngModel)]="registerData.bp" name="reg_bp" placeholder="BP 1205 Kinshasa" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Téléphone</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <input type="tel" [(ngModel)]="registerData.telephone" name="reg_telephone"
+                    placeholder="+243 81 000 0000" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email de l'école</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <input type="email" [(ngModel)]="registerData.email_ecole" name="reg_email_ecole"
+                    placeholder="contact@ecole.cd" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary-modal">
+                Continuer
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 2 -->
+        <div *ngIf="!registerIsLoading && registerStep === 2" class="auth-form">
+          <div class="auth-header">
+            <h2>Compte Administrateur</h2>
+            <p>Ce compte aura les pleins pouvoirs de gestion</p>
+          </div>
+
+          <div class="school-badge">
+            <div class="school-badge-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <div>
+              <div class="school-badge-name">{{ registerData.nom_ecole || 'École' }}</div>
+              <div class="school-badge-code">Code : {{ registerData.code_epst || '---' }}</div>
+            </div>
+            <button type="button" class="school-badge-edit" (click)="registerStep = 1">Modifier</button>
+          </div>
+
+          <form (ngSubmit)="onRegister()">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nom <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <input type="text" [(ngModel)]="registerData.nom" name="reg_nom" required placeholder="Kasongo" />
+                </div>
+                <div *ngIf="registerShowErrors && registerErrors['nom']" class="error-text">{{ registerErrors['nom'] }}
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Prénom <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <input type="text" [(ngModel)]="registerData.prenom" name="reg_prenom" required placeholder="Alain" />
+                </div>
+                <div *ngIf="registerShowErrors && registerErrors['prenom']" class="error-text">{{
+                  registerErrors['prenom'] }}</div>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label>Email Administrateur <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input type="email" [(ngModel)]="registerData.email" name="reg_email" required
+                  placeholder="admin@ecole.cd" autocomplete="email" />
+              </div>
+              <div *ngIf="registerShowErrors && registerErrors['email']" class="error-text">{{ registerErrors['email']
+                }}</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Mot de passe <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0110 0v4" />
+                  </svg>
+                  <input [type]="registerShowPassword ? 'text' : 'password'" [(ngModel)]="registerData.mot_de_passe"
+                    name="reg_password" required placeholder="••••••••" autocomplete="new-password" />
+                  <button type="button" class="eye-btn" (click)="toggleRegisterPassword()"
+                    aria-label="Afficher le mot de passe">
+                    <svg *ngIf="registerShowPassword" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path
+                        d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+                      <line x1="1" y1="1" x2="23" y2="23" />
+                    </svg>
+                    <svg *ngIf="!registerShowPassword" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </button>
+                </div>
+                <div *ngIf="registerShowErrors && registerErrors['mot_de_passe']" class="error-text">{{
+                  registerErrors['mot_de_passe'] }}</div>
+              </div>
+
+              <div class="form-group">
+                <label>Confirmation <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0110 0v4" />
+                  </svg>
+                  <input [type]="registerShowConfirmPassword ? 'text' : 'password'"
+                    [(ngModel)]="registerConfirmPassword" name="reg_confirm_password" required placeholder="••••••••"
+                    autocomplete="new-password" />
+                  <button type="button" class="eye-btn" (click)="toggleRegisterConfirmPassword()"
+                    aria-label="Afficher la confirmation">
+                    <svg *ngIf="registerShowConfirmPassword" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path
+                        d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+                      <line x1="1" y1="1" x2="23" y2="23" />
+                    </svg>
+                    <svg *ngIf="!registerShowConfirmPassword" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </button>
+                </div>
+                <div *ngIf="registerShowErrors && registerErrors['confirmPassword']" class="error-text">{{
+                  registerErrors['confirmPassword'] }}</div>
+              </div>
+            </div>
+
+            <div *ngIf="registerServerError" class="error-box" role="alert">
+              <span>⚠</span> {{ registerServerError }}
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary-modal" (click)="registerStep = 1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+                Précédent
+              </button>
+              <button type="submit" class="btn-primary-modal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34" />
+                  <polygon points="18 2 22 6 12 16 8 16 8 12 18 2" />
+                </svg>
+                Créer mon compte
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- MODAL MOT DE PASSE OUBLIÉ                    -->
+  <!-- ============================================ -->
+  <div class="auth-modal-overlay" *ngIf="showForgotPasswordModal" (click)="showForgotPasswordModal = false"
+    role="dialog" aria-modal="true">
+    <div class="auth-modal small" (click)="$event.stopPropagation()">
+      <button class="auth-modal-close" (click)="showForgotPasswordModal = false" aria-label="Fermer" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <div class="auth-content text-center">
+        <div class="auth-icon-small">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+        </div>
+        <h3>Mot de passe oublié ?</h3>
+        <p>Contactez l'administrateur de votre école pour recevoir un lien sécurisé de réinitialisation.</p>
+        <button class="btn-primary-modal full" (click)="showForgotPasswordModal = false" type="button">
+          J'ai compris
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- MODAL VÉRIFICATION                            -->
+  <!-- ============================================ -->
+  <div class="auth-modal-overlay" *ngIf="showVerificationModal" (click)="showVerificationModal = false" role="dialog"
+    aria-modal="true">
+    <div class="auth-modal small" (click)="$event.stopPropagation()">
+      <button class="auth-modal-close" (click)="showVerificationModal = false" aria-label="Fermer" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      <div class="auth-content text-center">
+        <div class="auth-icon-small" style="background: var(--warning-50); color: var(--warning-600);">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+        </div>
+        <h3>Vérification email requise</h3>
+        <p>Un code de vérification a été envoyé à :<br><strong>{{ pendingVerificationEmail }}</strong></p>
+        <div class="auth-actions">
+          <button class="btn-primary-modal full"
+            (click)="showVerificationModal = false; closeLoginModal(); openRegisterModal();" type="button">
+            Vérifier mon compte
+          </button>
+          <button class="btn-secondary-modal full" (click)="showVerificationModal = false" type="button">
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
